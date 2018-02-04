@@ -1,5 +1,4 @@
 import React from 'react';
-import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 import { removeCharacter } from '../actions/characters';
 
@@ -10,4 +9,4 @@ const CharacterListItem = ({ id, name, level, characterClass, dispatch }) => (
   </div>
 );
 
-export default connect()(CharacterListItem);
+export default CharacterListItem;

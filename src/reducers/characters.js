@@ -20,6 +20,8 @@ export default (state = characterReducerDefaultState, action) => {
           return character;
         }
       });
+    case 'SET_CHARACTERS':
+      return action.characters;
     default:
       return state;
   }

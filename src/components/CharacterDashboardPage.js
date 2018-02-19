@@ -2,11 +2,11 @@ import React from 'react';
 import CharacterList from './CharacterList';
 import CharacterListFilters from './CharacterListFilters';
 
-const VaultDashboardPage = () => (
+const CharacterDashboardPage = () => (
   <div>
     <CharacterListFilters />    
     <CharacterList />    
   </div>
 );
 
-export default VaultDashboardPage;
+export default CharacterDashboardPage;

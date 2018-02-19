@@ -13,8 +13,8 @@ export const sortByName = () => ({
 
 //sort by amount
 
-export const sortByLevel = () => ({
-  type: 'SORT_BY_LEVEL'
+export const sortBySystem = () => ({
+  type: 'SORT_BY_SYSTEM'
 });
 
 //set start date

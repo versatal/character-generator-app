@@ -10,8 +10,8 @@ export default (characters, {text, sortBy, startDate, endDate}) => {
 
     return startDateMatch && endDateMatch && textMatch;
   }).sort((a, b) => {
-    if (sortBy === 'level') {
-      return a.level < b.level ? 1 : -1
+    if (sortBy === 'system') {
+      return a.system.localeCompare(b.system) ? 1 : -1
     } else if (sortBy === 'name') {
       return a.name.localeCompare(b.name) ? 1 : -1      
     }

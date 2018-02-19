@@ -14,10 +14,10 @@ export default (state = filtersReducerDefaultState, action) => {
         ...state,
         text: action.text
       };
-    case 'SORT_BY_LEVEL':    
+    case 'SORT_BY_SYSTEM':    
       return {
         ...state,
-        sortBy: 'level'
+        sortBy: 'SYSTEM'
       };
     case 'SORT_BY_NAME':    
       return {

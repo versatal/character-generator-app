@@ -1,5 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
+import { Link } from 'react-router-dom';
 import { setTextFilter, sortByName, sortByLevel } from '../actions/filters';
 
 export class CharacterListFilters extends React.Component{
@@ -15,19 +16,33 @@ export class CharacterListFilters extends React.Component{
   };
   render() {
     return (
-      <div>
-        <input 
-          type="text" 
-          value={this.props.filters.text} 
-          onChange={this.onTextChange}
-        />
-        <select 
-          value={this.props.filters.sortBy} 
-          onChange={this.onSortChange}
-        >
-          <option value="name">Name</option>
-          <option value="level">Level</option>
-        </select>
+      <div className="content-container">
+        <div className="page-header">
+          <div className="content-container header-dashboard">
+            <h1 className="page-header__title">Viewing All Characters</h1> 
+            <Link className="button" to="/create">Add Character</Link>
+          </div>
+        </div>
+
+
+        <div className="input-group">
+          <div className="input-group__item">
+            <input 
+              type="text" 
+              value={this.props.filters.text} 
+              onChange={this.onTextChange}
+            />
+          </div>
+          <div className="input-group__item">
+            <select 
+              value={this.props.filters.sortBy} 
+              onChange={this.onSortChange}
+            >
+              <option value="name">Name</option>
+              <option value="system">System</option>
+            </select>
+          </div>
+        </div>
       </div>
     )
   }

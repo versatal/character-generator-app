@@ -1,27 +1,31 @@
 import React from 'react';
-import { BrowserRouter, Route, Switch, Link, NavLink } from 'react-router-dom'
-import VaultDashboardPage from '../components/VaultDashboardPage';
+import { Router, Route, Switch, Link, NavLink } from 'react-router-dom';
+import createHistory from 'history/createBrowserHistory';
+import CharacterDashboardPage from '../components/CharacterDashboardPage';
 import AddCharacterPage from '../components/AddCharacterPage';
-import ViewCharacterPage from '../components/ViewCharacterPage';
 import EditCharacterPage from '../components/EditCharacterPage';
+import UserProfile from '../components/UserProfile';
 import Header from '../components/Header';
-import HelpPage from '../components/HelpPage';
 import NotFoundPage from '../components/NotFoundPage';
+import LoginPage from '../components/LoginPage';
+import PrivateRoute from './PrivateRoute';
+import PublicRoute from './PublicRoute';
+
+export const history = createHistory();
 
 const AppRouter = () => (
-  <BrowserRouter>
+  <Router history={history}>
     <div>
-      <Header />
       <Switch>
-        <Route path="/" component={VaultDashboardPage} exact={true}/>
-        <Route path="/create" component={AddCharacterPage} />
-        <Route path="/edit/:id" component={EditCharacterPage} />
-        <Route path="/view/:id" component={ViewCharacterPage} />
-        <Route path="/help" component={HelpPage} />
+        <PublicRoute path="/" component={LoginPage} exact={true}/>
+        <PrivateRoute path="/dashboard" component={CharacterDashboardPage}/>
+        <PrivateRoute path="/create" component={AddCharacterPage} />
+        <PrivateRoute path="/edit/:id" component={EditCharacterPage} />
+        <PrivateRoute path="/profile" component={UserProfile} />
         <Route component={NotFoundPage} />
       </Switch>
     </div>
-  </BrowserRouter>  
+  </Router>  
 )
 
 export default AppRouter;
